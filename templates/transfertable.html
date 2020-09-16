@@ -18,8 +18,8 @@
 		<tbody>
 			{% for item in trans %}
 			<tr>
-				<th scope="row">{{item.name}}</th>
-				<td><a href="transfer/{{item.name}}">{{ item.recipient }}</a></td>
+				<th scope="row"><a href="transfer/{{item.name}}">{{item.name}}</a></th>
+				<td><a href="transfer/{{item.recipient}}">{{ item.recipient }}</a></td>
 				<td>{{ item.credit}}</td>
 			</tr>
 			{% endfor %}
