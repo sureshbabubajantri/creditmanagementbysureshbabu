@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transfer Table</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<center><h1 class="p-3 mb-2 bg-primary text-white">Transfer Table</h1></center>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Sender</th>
+				<th scope="col">Reciver</th>
+				<th scope="col">Credit Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in trans %}
+			<tr>
+				<th scope="row">{{item.name}}</th>
+				<td><a href="transfer/{{item.name}}">{{ item.recipient }}</a></td>
+				<td>{{ item.credit}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{% url 'home'%}"><button class="btn btn-primary"> back to home</button></a>
+</body>
+</html>

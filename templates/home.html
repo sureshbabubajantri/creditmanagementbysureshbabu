@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Credit Management</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.fa {
+  padding: 10px;
+  font-size: 15px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%
+}
+  	.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+  	.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-envelope{
+	 background: #007bb5;
+     color: white;
+	}
+  </style>
+}
+</head>
+<body style="padding:0px;">
+	<div class="container-fluid">
+		<div class="row">
+	       <div class="col" id="credit" style="background-image: url({% static "Banking-cross-banking-capabilities_0.jpg"%});height:700px;">
+		       <!-- <img src={% static "Banking-cross-banking-capabilities_0.jpg"%} width=60%> -->
+		       <!-- <a href="#viewuser">here</a> -->
+		      <h1 style="padding-left: 20%;padding-top: 20%">Credit Management</h1><!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+		      <a style="padding-left: 26%" href="{% url 'viewuser'%}"><button class="btn btn-primary">view users</button></a><br><br>
+		      <a style="padding-left: 26%" href="{% url 'transfertable'%}"><button class="btn btn-primary">Transfer Table</button></a><br><br>
+	       </div>
+       </div>
+    <div class="row" style="border: 2px solid grey;border-radius: 15px; ">
+    	<div class="col-md-6" id="adduser" style="">
+    		<!-- <form>
+    			<div class="form-group">
+    			<input type="text" name="name" placeholder="Name">
+    			<input type="number" name="credit amount" placeholder="enter credit amount">
+    			<input type="submit" name="submit">submit
+    		    </div>
+    		</form> -->
+    		<h2>Add User</h2>
+    		<form method="POST" enctype="multipart/form-data">
+    			{% csrf_token %}
+    			<!-- {{ form.as_p }} -->
+    			<div class="form-group">
+    				<label for="exampleInputEmail1">Name</label><br>
+    				<!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+    				{{ form.name }}
+    			</div>
+    			<div class="form-group">
+    				<label for="exampleInputPassword1">Credit Amount</label><br>
+    				<!-- <input type="number" class="form-control" id="exampleInputPassword1"> -->
+    				{{ form.credit_amount }}
+    			</div>
+    			<button type="submit" class="btn btn-primary">Submit</button>
+    		</form><br>
+    	</div>
+    </div>
+    <!-- {% for i in l %}
+	{{i}}
+	{% endfor %}
+	<div class="row">
+	<div class="col" id="viewusers">
+		<a href="#selectviewuser">here</a>
+		<h1>View all users</h1> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+	<!-- </div>
+	</div>
+	<div class="row">
+	<div class="col" id="selectviewuser">
+		<a href="#credit">here</a>
+		<h1>select and view one user</h1> --><!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+	<!-- </div>
+	<div id="contact">
+		
+	</div>
+	</div> -->
+    <!-- Footer -->
+    <footer ><center>
+    	<a href="https://www.facebook.com/profile.php?id=100010830841147" class="fa fa-facebook"></a>
+    	<a href="https://twitter.com/BSuresh96696682" class="fa fa-twitter"></a>
+    	<a href="https://www.linkedin.com/in/suresh-babu-bajantri-9157451aa/" class="fa fa-linkedin"></a>
+    	<a href="https://www.instagram.com/sureshbabu_suri/?hl=en" class="fa fa-instagram"></a>
+    	<a href="https://join.skype.com/invite/YFDSVbzzKfSy" class="fa fa-skype"></a>
+    	<a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="fa fa-envelope"></a>
+    	</center>
+    </footer>
+    <!-- Footer -->
+</body>
+</html>

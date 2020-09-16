@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transfer</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<center><h1 class="p-3 mb-2 bg-primary text-white">users</h1></center>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Credit Amount</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="row">1</th>
+				<td>{{ obj.name }}</td>
+				<td>{{ obj.credit_amount}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="container text-center">
+            <button class="btn btn-primary my-3" type="button" data-toggle="collapse" data-target="#details"
+                aria-expanded="false" aria-controls="collapseExample" title="Transfer credits now!">
+                Transfer Credit
+            </button>
+            <div class="collapse my-2 userform" id="details">
+                <div class="card card-body">
+                    <form action="/transfer/{{obj.name}}/confirmation" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Recipient User<span
+                                    style="color: red;">*</span>:</label>
+                            <select required class="form-control col-sm-8" id="recipient" name="recipient">
+                                <option selected></option>
+                                {% for usr in objs %}
+                                {% ifnotequal usr.name obj.name %}
+                                <option>{{usr.name}}</option>
+                                {% endifnotequal %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label text-right">Credit(s)<span
+                                    style="color: red;">*</span>:</label>
+                            <input class="col-sm-8" type="number" id="credit" name="credit" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% for i in messages %}
+        {{i}}
+        {% endfor %}
+</body>
+</html>
